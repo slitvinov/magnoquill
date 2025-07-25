@@ -1,9 +1,10 @@
 from math import sin, cos, pi, hypot as mag
 
-w = 400
+nu = 206
+nv = 309
 t = 0
-for i in range(100):
-    canvas = w * w * [0]
+for i in range(480):
+    canvas = nv * nu * [0]
     t += pi / 240
     for x in range(10000):
         y = x / 235
@@ -16,12 +17,14 @@ for i in range(100):
         v = q * sin(c) + d * 39 - 440
         u = int(u)
         v = int(v)
-        canvas[u + v * w] += 96
+        u -= 96
+        v -= 55
+        canvas[u + v * nu] += 96
+
     with open(f"{i:08}.pgm", "w") as pgm:
         pgm.write(f'''P2
-{w} {w}
+{nu} {nv}
 255
 ''')
         for u in canvas:
             pgm.write(f"{u}\n")
-
