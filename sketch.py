@@ -24,4 +24,3 @@ for i in range(100):
 ''')
         for u in canvas:
             pgm.write(f"{u}\n")
-
