@@ -17,10 +17,3 @@ for i in range(480):
         u = int(u)
         v = int(v)
         canvas[u + v * w] += 96
-    with open(f"{i:08}.pgm", "w") as pgm:
-        pgm.write(f'''P2
-{w} {w}
-255
-''')
-        for u in canvas:
-            pgm.write(f"{u}\n")
