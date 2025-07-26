@@ -2,18 +2,18 @@ from math import sin, cos, pi, hypot as mag
 
 t = 0
 n = 10000
-for i in range(10):
+for i in range(480):
+    t += pi / 240
     with open("%03d.skel" % i, "w") as file:
         file.write("SKEL\n")
         file.write("%d 1\n" % n)
         for x in range(n):
-            # t += pi / 240
             y = x / 235
-            k = (4 + sin(x / 11)) * cos(x / 14)
+            k = (4 + sin(x / 11 + t * 8)) * cos(x / 14)
             e = y / 8 - 19
-            d = mag(k, e) + sin(y / 9)
+            d = mag(k, e) + sin(y / 9 + t * 2)
             q = 2 * sin(k * 2) + sin(y / 17) * k * (9 + 2 * sin(y - d * 3))
-            c = d * d / 49
+            c = d * d / 49 - t
             u = 50 * cos(c) + q
             v = d * 39 + q * sin(c)
             w = 30 * sin(c / 2 + 0.1 * q)
