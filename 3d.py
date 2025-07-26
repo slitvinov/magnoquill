@@ -17,7 +17,7 @@ for i in range(480):
             u = 50 * cos(c) + q
             v = d * 39 + q * sin(c)
             w = 30 * sin(c / 2 + 0.1 * q)
-            file.write("%.16e %.16e %.16e\n" % (u, v, w))
+            file.write("%.16e %.16e %.16e\n" % (u, -v, w))
         file.write("%d " % n)
         for x in range(n):
             file.write(" %d" % x)
