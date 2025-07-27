@@ -2,18 +2,20 @@ from math import sin, cos, pi, hypot as mag
 
 w = 400
 t = 0
-for i in range(480):
+h = set()
+for i in range(960):
     canvas = w * w * [0]
     t += pi / 240
     for x in range(10000):
         y = x / 235
-        k = (4 + sin(x / 11 + t * 8)) * cos(x / 14)
-        e = y / 8 - 19
-        d = mag(k, e) + sin(y / 9 + t * 2)
-        q = 2 * sin(k * 2) + sin(y / 17) * k * (9 + 2 * sin(y - d * 3))
-        c = d * d / 49 - t
-        u = q + 50 * cos(c) + 200
-        v = q * sin(c) + d * 39 - 440
+        k = (4 + cos(x / 9 - t)) * cos(x / 30)
+        e = y / 7 - 13
+        d = mag(k, e) + sin(y / 99 + t / 2) - 4
+        q = 3 * sin(k * 2) + sin(
+            y / 29) * k * (9 + 2 * sin(cos(e) * 9 - d * 4 + t))
+        c = d - t
+        u = q + 40 * cos(c) + 200
+        v = q * sin(c) + d * 35
         u = int(u)
         v = int(v)
         canvas[u + v * w] += 96
